@@ -33,3 +33,12 @@ dependencies {
     
     compile 'org.jooq:jool:0.9.7'
 }
+
+task runApp(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+
+  main = 'eu.mc80.java.fizzbuzz.App'
+
+  // arguments to pass to the application
+  // args 'appArg1'
+}
