@@ -1,23 +1,35 @@
 package eu.mc80.java.fizzbuzz;
 
-import java.util.stream.IntStream;
-
-import org.jooq.lambda.tuple.Tuple2;
+import org.apache.commons.cli.*;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+@lombok.extern.slf4j.Slf4j
 public class App {
-	
-	private static final Logger LOG = LoggerFactory.getLogger(App.class);
 
-	public static void main(String... args) {
-		
-		IntStream.rangeClosed(1, 100)
-			.mapToObj( i -> new Tuple2<Integer, String>(i, ""))
-			.map(t -> t.v1%3 != 0 ? t : new Tuple2<Integer, String>(t.v1, t.v2 + "Fizz"))
-			.map(t -> t.v1%5 != 0 ? t : new Tuple2<Integer, String>(t.v1, t.v2 + "Buzz"))
-			.map(t -> !t.v2.isEmpty() ? t : new Tuple2<Integer, String>(t.v1, t.v1.toString()))
-			.map(t -> t.v2)
-			.forEach(LOG::info);
-	}
+  public static void main(String... args) throws Exception {
+
+    final int end = getEndFromArgs(args);
+    final IntStream range = IntStream.rangeClosed(1, end);
+    final Stream<String> fizzBuzz = new FizzBuzzMapperFunctional().map(range);
+    logstream(log, fizzBuzz);
+  }
+
+  static void logstream(Logger logger, Stream<String> fizzBuzz) {
+    fizzBuzz.forEach(logger::info);
+  }
+
+  static int getEndFromArgs(String... args) throws ParseException {
+    final Option endOption = Option.builder("e").required().longOpt("end").hasArg().build();
+
+    final Options options = new Options();
+    options.addOption(endOption);
+
+    CommandLineParser parser = new DefaultParser();
+    CommandLine cmd = parser.parse(options, args);
+
+    return Integer.parseInt(cmd.getOptionValue(endOption.getOpt()));
+  }
 }
