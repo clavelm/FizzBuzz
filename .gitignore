@@ -1,6 +1,6 @@
 *.pydevproject
 .metadata
-.gradle
+.gradle/
 bin/
 tmp/
 *.tmp
@@ -38,3 +38,5 @@ build/
 
 # TeXlipse plugin
 .texlipse
+
+.idea/
