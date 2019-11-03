@@ -1,6 +1,6 @@
 *.pydevproject
 .metadata
-.gradle
+.gradle/
 bin/
 tmp/
 *.tmp
@@ -10,6 +10,7 @@ tmp/
 local.properties
 .settings/
 .loadpath
+build/
 
 # Eclipse Core
 .project
@@ -37,3 +38,5 @@ local.properties
 
 # TeXlipse plugin
 .texlipse
+
+.idea/
