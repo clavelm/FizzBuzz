@@ -8,5 +8,5 @@ import javax.inject.Singleton
 class FizzBuzzModule {
     @Provides
     @Singleton
-    fun provideFizzBuzzMapper(): FizzBuzzMapper = FunctionalFizzBuzzMapper()
+    fun provideFizzBuzzMapper(): FizzBuzzMapper = KtFizzBuzzMapper()
 }
