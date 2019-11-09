@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 import java.util.stream.IntStream
 
-class FizzBuzzMapperTest extends Specification {
+class FizzBuzzMapperSpec extends Specification {
 
     private mapper = DaggerFizzBuzzComponent.create().mapper()
 

@@ -3,7 +3,7 @@ package eu.mc80.java.fizzbuzz
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class ParametersExtractorTest extends Specification {
+class ParametersExtractorSpec extends Specification {
 
     private extractor = DaggerFizzBuzzComponent.create().parametersExtractor()
 
