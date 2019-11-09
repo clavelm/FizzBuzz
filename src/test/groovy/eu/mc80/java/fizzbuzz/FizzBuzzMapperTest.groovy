@@ -6,7 +6,7 @@ import java.util.stream.IntStream
 
 class FizzBuzzMapperTest extends Specification {
 
-    private mapper = new FunctionalFizzBuzzMapper()
+    private mapper = DaggerFizzBuzzComponent.create().mapper()
 
     def "map null range to empty stream"() {
         when:

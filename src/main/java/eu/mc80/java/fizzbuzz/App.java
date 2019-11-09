@@ -15,15 +15,15 @@ public class App {
 
     final int end = getEndFromArgs(args);
     final IntStream range = IntStream.rangeClosed(1, end);
-    final Stream<String> fizzBuzz = new FunctionalFizzBuzzMapper().map(range);
+    final Stream<String> fizzBuzz = DaggerFizzBuzzComponent.create().mapper().map(range);
     logstream(log, fizzBuzz);
   }
 
-  static void logstream(Logger logger, Stream<String> fizzBuzz) {
+  private static void logstream(Logger logger, Stream<String> fizzBuzz) {
     fizzBuzz.forEach(logger::info);
   }
 
-  static int getEndFromArgs(String... args) throws ParseException {
+  private static int getEndFromArgs(String... args) throws ParseException {
     final Option endOption = Option.builder("e").required().longOpt("end").hasArg().build();
 
     final Options options = new Options();
