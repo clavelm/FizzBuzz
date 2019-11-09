@@ -6,6 +6,6 @@ import javax.inject.Singleton
 @Component(modules = [FizzBuzzModule::class])
 @Singleton
 interface FizzBuzzComponent {
-    fun mapper() : FizzBuzzMapper
-    fun parametersExtractor() : ParametersExtractor
+    fun mapper(): FizzBuzzMapper
+    fun parametersExtractor(): ParametersExtractor
 }

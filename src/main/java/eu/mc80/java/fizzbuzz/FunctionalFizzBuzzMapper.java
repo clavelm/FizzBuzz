@@ -1,11 +1,10 @@
 package eu.mc80.java.fizzbuzz;
 
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jooq.lambda.tuple.Tuple2;
-
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class FunctionalFizzBuzzMapper implements FizzBuzzMapper {
   @Override
