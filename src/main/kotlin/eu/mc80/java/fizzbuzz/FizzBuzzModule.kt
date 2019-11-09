@@ -9,4 +9,8 @@ class FizzBuzzModule {
     @Provides
     @Singleton
     fun provideFizzBuzzMapper(): FizzBuzzMapper = KtFizzBuzzMapper()
+
+    @Provides
+    @Singleton
+    fun provideParametersExtractor(): ParametersExtractor = CommandLineParserParametersExtractor()
 }
