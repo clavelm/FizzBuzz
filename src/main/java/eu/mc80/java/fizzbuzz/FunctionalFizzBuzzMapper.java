@@ -7,7 +7,6 @@ import org.jooq.lambda.tuple.Tuple2;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-@lombok.Data
 public class FunctionalFizzBuzzMapper implements FizzBuzzMapper {
   @Override
   @NotNull
