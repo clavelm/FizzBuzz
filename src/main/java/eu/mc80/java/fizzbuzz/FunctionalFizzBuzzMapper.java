@@ -1,14 +1,20 @@
 package eu.mc80.java.fizzbuzz;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jooq.lambda.tuple.Tuple2;
 
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 @lombok.Data
-public class FizzBuzzMapperFunctional implements FizzBuzzMapper {
+public class FunctionalFizzBuzzMapper implements FizzBuzzMapper {
   @Override
-  public Stream<String> map(IntStream range) {
+  @NotNull
+  public Stream<String> map(@Nullable IntStream range) {
+    if (range == null) {
+      return Stream.empty();
+    }
     return range
         .mapToObj(i -> new Tuple2<>(i, ""))
         .map(t -> t.v1 % 3 != 0 ? t : new Tuple2<>(t.v1, t.v2 + "Fizz"))

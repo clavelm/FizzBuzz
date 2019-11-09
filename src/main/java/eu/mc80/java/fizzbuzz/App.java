@@ -13,7 +13,7 @@ public class App {
 
     final int end = getEndFromArgs(args);
     final IntStream range = IntStream.rangeClosed(1, end);
-    final Stream<String> fizzBuzz = new FizzBuzzMapperFunctional().map(range);
+    final Stream<String> fizzBuzz = new FunctionalFizzBuzzMapper().map(range);
     logstream(log, fizzBuzz);
   }
 
